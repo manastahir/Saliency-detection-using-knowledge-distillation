@@ -17,7 +17,7 @@ I applied the knowledge distillation to the task of saliency detection. The <i>M
 Contextual encoder–decoder network for visual saliency prediction</a> is used as the teacher model. Teacher model has approximately <b>25 million parameters</b>.
 This github <a href="https://github.com/alexanderkroner/saliency">repository</a> provides the implementaion of the model in tensorflow, dataset links and related files. 
 </p>
-<img src="https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/teacher%20model.jpg">
+<img src=https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/teacher%20model.jpg">
 
 <h5>Student Model</h5>
 </p>
@@ -32,7 +32,8 @@ approximately <b>12 million parameters</b> (about half the size of the teacher m
 <h4>Data</h4>
 <p>
 Dataset used is the SALICON dataset <a href="http://salicon.net/download/">Link</a><br/>
-Along with the original dataset the output from the teacher model is also generated for both trainining and validation images(stimuli) and stored.
+Along with the original dataset the output from the teacher model is also generated for both trainining and validation images(stimuli) and stored.<br/>
+As for augmentaion inputs were randomly flipped vertically and horizontally.
 </p>
 
 ```shell
@@ -41,4 +42,18 @@ python ./saliency/main.py test -p ./data/salicon/stimuli/val
 ```
 
 <h4>Training</h4>
-The smoothing factor of 3 is used for the student model training. KL-Divergence is used as the loss fucnation and the evaluation metric to measure the performance of the model.
+<p>
+The smoothing factor of 3 is used for the student model training. KL-Divergence is used as the loss fucnation and the evaluation metric to measure the performance of the model. Learning rate was set to 1e-3 and Adam optimizer was used. Both models were trained for 10 epochs. </br></br>
+  
+ Note: Number of epochs is not optimal, it was selected just to show the difference between the two types of training techniques. 
+ </p>
+ 
+ <h4>Results</4>
+ <p>KL Divergence graph for Model A</p>
+ <img src="https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/without%20kd.jpg">
+ 
+ <p>KL Divergence graph for Model B</p>
+ <img src="https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/with%20kd.jpg">
+ 
+ <h4>Conclusion</h4>
+ With knowledge distilaltion 
