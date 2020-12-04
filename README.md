@@ -17,7 +17,7 @@ I applied the knowledge distillation to the task of saliency detection. The <i>M
 Contextual encoder–decoder network for visual saliency prediction</a> is used as the teacher model. Teacher model has approximately <b>25 million parameters</b>.
 This github <a href="https://github.com/alexanderkroner/saliency">repository</a> provides the implementaion of the model in tensorflow, dataset links and related files. 
 </p>
-<img src=https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/teacher%20model.jpg">
+<img src="https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/teacher%20model.jpg">
 
 <h5>Student Model</h5>
 </p>
@@ -56,4 +56,8 @@ The smoothing factor of 3 is used for the student model training. KL-Divergence 
  <img src="https://github.com/manastahir/Saliency-detection-using-knowledge-distillation/blob/master/images/with%20kd.jpg">
  
  <h4>Conclusion</h4>
- With knowledge distilaltion 
+ <p>
+Although the comparison is not intensive and hyper-parameters can be tuned further but, the results show, that despite having same hyper parameters and almost similar architechure    and number of parameters, the model fail to converge with simple training. With knowledge distilaltion a smaller model, in this case model with half the size as the original model, can be effectively trained to mimic the behaviour of the teacher and can give compareale performance even when the task is complex.
+  </p>
+  
+ 
