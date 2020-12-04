@@ -21,8 +21,9 @@ This github <a href="https://github.com/alexanderkroner/saliency">repository</a>
 
 <h5>Student Model</h5>
 </p>
-The student model simply consists of Resnet18 backbone, the output from the last residual block is passed to a series of UpScale2D and Convolution2D layers. For comparison of simple training with
-teacher-student training two variants were implemnted. <br/><br/>
+The student model simply consists of Resnet18 backbone, the output from the last residual block is passed to a series of UpScale2D and Convolution2D layers. This smaller model has
+approximately <b>12 million parameters</b> (about half the size of the teacher model). For comparison of simple training with teacher-student training two variants of this model were implemnted. <br/><br/>
+
 <b>Model A</b>: simple model with unbranched decoder and produces just one output: a saliency map. <br/>
 <b>Model B</b>: student model with last layer of the decoder branched to produce 2 outputs: a saliency map and a feature map for correspondance with teacher output.<br/>
 </p>
@@ -40,3 +41,4 @@ python ./saliency/main.py test -p ./data/salicon/stimuli/val
 ```
 
 <h4>Training</h4>
+The smoothing factor of 3 is used for the student model training. KL-Divergence is used as the loss fucnation and the evaluation metric to measure the performance of the model.
